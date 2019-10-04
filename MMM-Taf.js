@@ -1,12 +1,14 @@
 Module.register("MMM-Taf", {
 
     defaults: {
-        icaoList: ['YBAF', 'YBBN', 'YAMB', 'YBCG', 'YBOK','YBNA', 'YSTW'],
-        fontSize: 30
+        icaoList: ['YBAF', 'YBBN', 'YAMB', 'YBCG', 'YBOK','YBNA', 'YSTW']
     },
     start: function() {
         this.results = [];
         this.getResults();
+    },
+    getStyles: function() {
+        return ['MMM-Taf.css'];
     },
     getResults: function() {
         var self = this;
@@ -24,7 +26,7 @@ Module.register("MMM-Taf", {
             entry.forEach(function(entry) {
                 var entryDiv = document.createElement('div');
                 entryDiv.innerHTML = entry;
-                entryDiv.setAttribute('font-size', self.config.fontSize +'px');
+                entryDiv.className = "entrydiv";
                 wrapperDiv.appendChild(entryDiv);
             });
             wrapper.appendChild(wrapperDiv);
