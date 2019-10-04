@@ -8,7 +8,7 @@ module.exports = NodeHelper.create({
             url: site,
             method: 'GET',
         }, function(error, response, body) {
-            self.sendSocketNotification('MMM_TAF_RESULT', body);
+            self.sendSocketNotification('MMM_TAF_RESULT', response.body);
         });
     },
     socketNotificationReceived: function(notification, payload) {
